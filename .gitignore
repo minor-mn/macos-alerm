@@ -1,0 +1,14 @@
+# Swift Package Manager
+.build/
+.swiftpm/
+
+# Xcode
+xcuserdata/
+DerivedData/
+*.xcodeproj
+
+# macOS
+.DS_Store
+
+# 個人のスケジュール(schedule.example.yaml からコピーして作成)
+schedule.yaml

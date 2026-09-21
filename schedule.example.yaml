@@ -1,0 +1,29 @@
+# macos-alerm スケジュール定義
+# 保存すると常駐デーモンが自動で再読み込みします(最大10分、通常は15秒以内)。
+
+defaults:
+  before_minutes: 1                              # 予定の何分前に鳴らすか
+  sound: /System/Library/Sounds/Glass.aiff       # アラーム音
+  repeat_sound: 3                                # 音を繰り返す回数
+  display: dialog                                # dialog(画面中央) | notification(通知センター)
+
+events:
+  # 毎日の予定: at に "HH:MM"
+  - title: 朝会
+    message: 10:00 から朝会です
+    at: "10:00"
+    weekdays: [mon, tue, wed, thu, fri]          # 省略すると毎日
+
+  # 単発の予定: at に "YYYY-MM-DD HH:MM"
+  - title: サンプル(単発)
+    message: これは単発予定のサンプルです
+    at: "2026-09-22 15:00"
+    before_minutes: 5
+    sound: /System/Library/Sounds/Sosumi.aiff
+
+  # 通知センターに出すだけの例
+  - title: 休憩
+    message: そろそろ休憩しましょう
+    at: "15:30"
+    display: notification
+    before_minutes: 0
